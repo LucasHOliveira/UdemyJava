@@ -1,0 +1,43 @@
+package seccaoOitoOrientadaObjetos.entities;
+
+public class Banco {
+	
+	private int numconta;
+	private String nome;
+	private double saldo;
+	
+	public Banco() {
+		
+	}
+
+	public Banco(int numconta, String nome, double saldo) {
+		super();
+		this.numconta = numconta;
+		this.nome = nome;
+		this.saldo = saldo;
+	}
+
+	public int getNumconta() {
+		return numconta;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+	
+	public double getSaldo() {
+		return saldo;
+	}	
+	
+	private void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	
+	private void depositDinheiro(double saldo) {
+		this.saldo += saldo;
+	}
+	
+	private void sacarDinheiro(double saldo) {
+		this.saldo -= saldo;
+	}
+}

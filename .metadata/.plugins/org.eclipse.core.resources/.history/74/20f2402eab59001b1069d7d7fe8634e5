@@ -1,0 +1,10 @@
+package entities;
+
+public enum Empregado {
+	
+	private Integer te;
+	private String nome;
+	private Double salario;
+	
+	
+}

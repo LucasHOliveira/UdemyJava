@@ -1,0 +1,9 @@
+package entities;
+
+public class Empregado {
+
+	private String nome;
+	private Double salario;
+	
+	
+}

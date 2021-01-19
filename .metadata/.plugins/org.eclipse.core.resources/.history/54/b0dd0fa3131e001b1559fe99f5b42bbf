@@ -1,0 +1,39 @@
+package seccaoOitoOrientadaObjetos.application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import seccaoOitoOrientadaObjetos.entities.Banco;
+
+public class ProgramaCaixaEletronico {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Entre com o número da conta: ");
+		int numconta = sc.nextInt();
+		System.out.print("Entre com o nome do titular:");
+		sc.nextLine();
+		String nome = sc.nextLine();
+		System.out.print("Esse é um deposito inicial (y/n)? ");
+		char response = sc.next().charAt(0);
+
+		if (response == 'y') {
+			System.out.print("Entre com o valor inicial: R$");
+			double depositoInicial = sc.nextDouble();
+		}
+		
+		System.out.printf("Numero conta %d, Titular: %s, Saldo R$ %.2f%n", numconta, nome, saldo);
+		
+		System.out.println("Digite a quantidade para deposito: R$ ");
+		saldo = sc.nextDouble();
+		
+		
+		
+		
+		sc.close();
+	}
+
+}

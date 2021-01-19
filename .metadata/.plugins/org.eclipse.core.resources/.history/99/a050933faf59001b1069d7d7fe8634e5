@@ -1,0 +1,75 @@
+package application;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Empregado;
+
+public class EmpregadoList_Aula96 {
+
+	public static void main(String[] args) {
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		List<Empregado> listFunc = new ArrayList<>();
+		
+		System.out.print("Entre com o número de profissionais que irá cadastrar: ");
+		int funcionário = sc.nextInt();
+		
+		for(int i=0; i <= funcionário; i++) {
+			
+			System.out.println();
+			System.out.println("Funcionario #" + (i + 1) + ":");
+			System.out.print("Id: ");
+			Integer id = sc.nextInt();
+			while (hasId(listFunc, id)) {
+				System.out.println("O ID já foi cadastrado: ");
+				id = sc.nextInt();
+			}
+			
+			System.out.print("Nome: ");
+			sc.nextLine();
+			String name = sc.nextLine();
+			System.out.print("Salário: ");
+			Double salary = sc.nextDouble();
+			
+			Empregado emp = new Empregado(id, name, salary);
+			
+			listFunc.add(emp);
+			
+		}
+		
+		/*System.out.print("Entre com o nome do titular:");
+		sc.nextLine();
+		String nome = sc.nextLine();
+		System.out.print("Esse é um deposito inicial (y/n)? ");
+		char response = sc.next().charAt(0);
+		if (response == 'y') {
+			System.out.print("Entre com o valor inicial: R$");
+			double depositoInicial = sc.nextDouble();
+			banco = new Banco(numconta, nome, depositoInicial);
+		} else {
+			banco = new Banco(numconta, nome);
+		}*/
+		
+		sc.close();
+	}
+	
+	public static Integer posicao(List<Empregado> list, int id) {
+		for(int i = 0; i < list.size(); i++) {
+			if(list.get(i).getId() == id) {
+				return i;
+			}
+		}
+		return null;
+	}
+	
+	public static boolean hasId(List<Empregado> list, int id) {
+		Empregado emp = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+		return emp != null;
+	}
+
+}

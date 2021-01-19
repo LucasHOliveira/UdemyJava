@@ -1,0 +1,35 @@
+package seccaoOitoOrientadaObjetos.application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import seccaoOitoOrientadaObjetos.entities.Pensionato;
+
+public class AlugarQuarto {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		Pensionato[] vect = new Pensionato[9];
+		
+		System.out.println("Digite quantos quarto serão alugados: ");
+		int alug = sc.nextInt();
+		
+		for(int i=0; i<alug; i++) {
+			sc.nextLine();
+			String nome = sc.nextLine();
+			String email = sc.nextLine();
+			int quarto = sc.nextInt();
+			
+			vect[quarto] = new Pensionato(nome, email, quarto);
+		}
+		
+		for(int i=0; i<vect.length; i++) {
+			System.out.printf("%i%: %s, %s", vect[i].getQuarto(), vect[i].getNome(), vect[i].getEmail());
+		}
+		
+		sc.close();
+	}
+
+}
